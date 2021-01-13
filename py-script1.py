@@ -9,8 +9,8 @@ cisco1 = {
     "device_type": "cisco_ios",
     "host": "192.168.50.100",
     "username": "admin",
-    "password": "eXbb123",
-    "secret": "eXbb123"
+    "password": " ",
+    "secret": " "
 }
 
 def prefix_update(prefix_input, asn_input):
@@ -39,11 +39,11 @@ def prefix_update(prefix_input, asn_input):
 	else:
         	print("no file")
 
-	#with ConnectHandler(**cisco1) as net_connect:
-        #	net_connect.enable()
-        #	output = net_connect.send_config_set(list_prefix)
-	#print (output)
-	#net_connect.disconnect()
+	with ConnectHandler(**cisco1) as net_connect:
+        	net_connect.enable()
+        	output = net_connect.send_config_set(list_prefix)
+	print (output)
+	net_connect.disconnect()
 
 def main_menu():
 	output_file = """1- update prefix list\n2- BGP Summary"""
